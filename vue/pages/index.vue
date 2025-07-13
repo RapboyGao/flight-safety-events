@@ -1,7 +1,10 @@
 <template>
   <div>
-    <div class="bg-black">Date from server: {{ date }}</div>
-    <NuxtWelcome />
+    <NavMenu></NavMenu>
+    <div class="flex">
+      <SideBarMenu></SideBarMenu>
+      <EventsTable></EventsTable>
+    </div>
   </div>
 </template>
 
@@ -30,8 +33,7 @@ onMounted(async () => {
 </script>
 
 <style lang="scss">
-.bg-black {
-  background-color: black;
-  color: #cccccc;
+.flex {
+  display: flex;
 }
 </style>
