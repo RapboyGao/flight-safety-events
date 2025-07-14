@@ -10,7 +10,18 @@
 <script setup lang="ts">
 import type { NavigationMenuItem } from "@nuxt/ui";
 
-const items = ref<NavigationMenuItem[][]>([
+const colorMode = useColorMode();
+
+const isDark = computed({
+  get() {
+    return colorMode.value === "dark";
+  },
+  set(_isDark) {
+    colorMode.preference = _isDark ? "dark" : "light";
+  },
+});
+
+const items = computed<NavigationMenuItem[][]>(() => [
   [
     {
       label: "Guide",
@@ -69,6 +80,12 @@ const items = ref<NavigationMenuItem[][]>([
     },
   ],
   [
+    {
+      icon: isDark.value ? "i-lucide-moon" : "i-lucide-sun",
+      onSelect() {
+        colorMode.preference = colorMode.value === "dark" ? "light" : "dark";
+      },
+    },
     {
       label: "Albert",
       icon: "i-simple-icons-github",
