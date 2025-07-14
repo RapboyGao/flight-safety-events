@@ -5,7 +5,11 @@
     orientation="horizontal"
     :items="items"
     class="data-[orientation=horizontal]:border-b border-default data-[orientation=horizontal]:w-full data-[orientation=vertical]:w-48"
-  />
+  >
+    <template #search>
+      <SearchBar></SearchBar>
+    </template>
+  </UNavigationMenu>
 </template>
 <script setup lang="ts">
 import type { NavigationMenuItem } from "@nuxt/ui";
@@ -81,6 +85,9 @@ const items = computed<NavigationMenuItem[][]>(() => [
   ],
   [
     {
+      slot: "search" as const,
+    },
+    {
       icon: isDark.value ? "i-lucide-moon" : "i-lucide-sun",
       onSelect() {
         colorMode.preference = colorMode.value === "dark" ? "light" : "dark";
@@ -90,6 +97,9 @@ const items = computed<NavigationMenuItem[][]>(() => [
       label: "Albert",
       icon: "i-simple-icons-github",
       badge: "三大队",
+    },
+    {
+      slot: "user",
     },
   ],
 ]);

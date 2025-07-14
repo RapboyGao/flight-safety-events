@@ -1,10 +1,8 @@
 <template>
-  <div>
-    <NavMenu></NavMenu>
-    <div class="flex">
-      <SideBarMenu></SideBarMenu>
-      <EventsTable></EventsTable>
-    </div>
+  <NavMenu></NavMenu>
+  <div class="flex">
+    <SideBarMenu></SideBarMenu>
+    <EventsTable></EventsTable>
   </div>
 </template>
 
@@ -35,5 +33,13 @@ onMounted(async () => {
 <style lang="scss">
 .flex {
   display: flex;
+}
+.flex-col {
+  flex-direction: column;
+}
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>
