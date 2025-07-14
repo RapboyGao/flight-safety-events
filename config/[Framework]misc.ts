@@ -33,5 +33,4 @@ export default {
   experimental: {
     payloadExtraction: false,
   },
-  modules: ["@nuxt/icon", "@nuxt/ui"],
 } as NuxtConfig;
