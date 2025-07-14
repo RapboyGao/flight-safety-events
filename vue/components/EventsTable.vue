@@ -1,5 +1,22 @@
 <template>
-  <UTable :data="data" class="flex-1" />
+  <UTable :data="data" class="flex-1">
+    <template #不安全事件描述-cell="{ row }">
+      <UModal>
+        <ULink>
+          {{ row.getValue("不安全事件描述") }}
+        </ULink>
+        <template #content>
+          <UCard>
+            <template #header>
+              {{ row.getValue("日期") }}
+              {{ row.getValue("机型") }}
+            </template>
+            {{ row.getValue("不安全事件描述") }}
+          </UCard>
+        </template>
+      </UModal>
+    </template>
+  </UTable>
 </template>
 <script setup lang="ts">
 const data = ref([
