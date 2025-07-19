@@ -13,3 +13,6 @@ dist
 /tmp
 /vendor
 /logs
+/.build
+**/DS_Store
+DS_Store
